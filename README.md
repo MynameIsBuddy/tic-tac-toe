@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Tic Tac Toe Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Tic Tac Toe game built with React, 
+featuring both 1-player (vs. Bot) and 2-player modes,
+along with a lives system for competitive play. 
+This README also documents the prompts used to 
+generate parts of this project using a large language model (IBM Granite)
 
-## Available Scripts
+# Table of Contents
 
-In the project directory, you can run:
+* [Tic Tac Toe Game](#tic-tac-toe-game)
+  * [Table of Contents](#table-of-contents)
+  * [Features](#features)
+  * [Development Prompts & Results](#development-prompts--results)
+    * [Phase 1: UI Preparation](#phase-1-ui-preparation)
+      * [Step 1: Create StartScreen Component](#step-1-create-startscreen-component)
+    * [Phase 2: Game Board Components](#phase-2-game-board-components)
+      * [Step 2.1: Create Square Component](#step-21-create-square-component)
+      * [Step 2.2: Create Board Component](#step-22-create-board-component)
+    * [Phase 3: Core Game Logic & Lives System](#phase-3-core-game-logic--lives-system)
+      * [Step 3.1: calculateWinner Function](#step-31-calculatewinner-function)
+      * [Step 3.2: LivesDisplay Component](#step-32-livesdisplay-component)
+    * [Phase 4: Bot Logic (for 1-Player Mode)](#phase-4-bot-logic-for-1-player-mode)
+      * [Step 4.1: makeBotMove Function (Hard Bot with Minimax)](#step-41-makebotmove-function-hard-bot-with-minimax)
+    * [Phase 5: Main Game Component (Game.js) & Global View Management](#phase-5-main-game-component-gamejs--global-view-management)
+      * [Step 5.1: Create Game Component (Main Logic & State)](#step-51-create-game-component-main-logic--state)
+      * [Step 5.2: Global View Management in App.js](#step-52-global-view-management-in-appjs)
+      * [Step 5.3: CSS Styling](#step-53-css-styling)
+  * [Styling](#styling)
+ 
+# Features
+* Two Game Modes: Play against an unbeatable AI bot (1-player) or challenge a friend (2-player).
+* Lives System: A unique feature where each player has a set number of lives, and losing a round reduces a life. The game ends when a player runs out of lives.
+* Minimax AI: The 1-player mode features an advanced AI using the Minimax algorithm, making it a challenging opponent.
+* Responsive Design: Enjoy the game seamlessly across various devices and screen sizes.
+* Clear UI: Intuitive and clean user interface for an engaging gaming experience.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#Development Prompts & Results
